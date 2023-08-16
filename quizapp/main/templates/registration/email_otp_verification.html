@@ -1,0 +1,7 @@
+{% extends 'registration/base.html' %}
+<form method="post">
+    {% csrf_token %}
+    <label for="email">Email address:</label>
+    <input type="email" name="email" required>
+    <button type="submit">Send verification code</button>
+</form>

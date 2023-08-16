@@ -1,0 +1,10 @@
+{% extends 'registration/base.html' %}
+<form method="post">
+    {% csrf_token %}
+    <label for="token">Verification code:</label>
+    <input type="text" name="token" required>
+    <button type="submit">Verify</button>
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}

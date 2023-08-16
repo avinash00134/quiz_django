@@ -1,0 +1,58 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block title %}{{category.title}}-Questions{% endblock %}
+{% block content %}
+<h2 class="my-4">Attempt Questions</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>Question</th>
+            <th>Right Answer</th>
+            <th>Submitted Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in result %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.question}}</td>
+            <td>{{row.question.right_opt}}</td>
+            {% if row.question.right_opt == row.right_answer %}
+            <td class="bg-success text-white">{{row.right_answer}}</td>
+            {% else %}
+            <td class="bg-danger text-white" >{{row.right_answer}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+   
+</table>
+
+<h2 class="my-4">Result Details</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Total questions</th>
+        <td>{{result.count}}</td>
+    </tr>
+    <tr>
+        <th>You are skipped Total questions</th>
+        <td>{{total_skipped}}</td>
+    </tr>
+    <tr>
+        <th>You are Attempt Total questions</th>
+        <td>{{attempt}}</td>
+    </tr> 
+    <tr>
+        <th>Right Answers</th>
+        <td>{{rightAnswer}}</td>
+    </tr> 
+    <tr>
+        <th>Percentage</th>
+        <td>{{percentage}}%</td>
+    </tr> 
+</table>
+<div class="text-center">
+    <a href="{% url 'download_pdf' %}" target="_blank"><button type="button" class="btn btn-primary btn-lg">Download Result</button></a>
+</div>
+{% endblock %}

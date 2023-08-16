@@ -1,0 +1,10 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+  <h3 style="text-align:center">LOGIN</h3>
+  <form method="POST" action="." enctype='multipart/form-data' class='form-control'> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Login</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<h2 class="my-4 ">Attempt Questions</h2>
+<table >
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>Question</th>
+            <th>Right Answer</th>
+            <th>Submitted Answer</th>
+        </tr>
+    </thead>
+    <tbody><hr>
+        {% for row in result %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.question}}</td>
+            <td>{{row.question.right_opt}}</td>
+            <td >{{row.right_answer}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+   
+</table>
+
+<h2 class="my-4">Result Details</h2>
+
+    <table  class="table table-bordered">
+        <tr>
+            <th>Total questions:-</th>
+            <hr>
+            <td>{{result.count|upper}}</td>
+
+        </tr>
+        <tr>
+            <th>You are skipped Total questions</th>
+            <td>{{skipQuestion|linebreaks}}</td>
+        </tr>
+        <tr>
+            <th>You are Attempt Total questions</th>
+            <td>{{attempt|linebreaks}}</td>
+        </tr> 
+        <tr>
+            <th>Right Answers</th>
+            <td>{{rightAnswer}}</td>
+        </tr> 
+        <tr>
+            <th>Percentage</th>
+            <td>{{percentage}}%</td>
+        </tr> 
+</table>

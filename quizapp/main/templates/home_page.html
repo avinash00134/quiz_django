@@ -1,0 +1,13 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block title %}Home Page{% endblock  %}
+{% block content %}
+<h3 class='text-center'>Welcome to Quiz</h3>
+<div class="carousel-inner">
+        {% comment %} <img class="d-block w-100" src="https://images.unsplash.com/20/cambridge.JPG?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1030&q=80" alt="First slide"> {% endcomment %}
+        <img src="{% static 'img/img2.jpg' %}" class="d-block w-100 h-100 size-cover " alt="...">
+</div>
+{% comment %} {% if user.is_authenticated %}
+<a href="{% url 'logout' %}">Logout</a>
+{% endif %} {% endcomment %}
+{% endblock %}
